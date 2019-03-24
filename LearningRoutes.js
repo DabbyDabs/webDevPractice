@@ -1,9 +1,14 @@
-const server= require('express')();
+const express= require('express');//we require exprress and call it as a funcn
+const server= express();
 
-const playerRoute= require('./routes/player');
-const teamRoute= require('./routes/team');
+server.use(express.json())
+server.use(express.urlencoded({extended: true}))
 
-server.use('/team',teamRoute)
+const playerRoute= require('./routes/player');//routes are required from the
+const teamRoute= require('./routes/team');    //respected files
+
+server.use('/team',teamRoute)  //code to use routes
 server.use('/player',playerRoute)
 
-server.listen(2222);
+
+server.listen(3333);
